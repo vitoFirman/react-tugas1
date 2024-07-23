@@ -37,6 +37,12 @@ export class Header extends Component{
                     <li className="nav-item">
                     <Link to={'/form'} className="nav-link">Form</Link>
                     </li>
+                    <li className="nav-item dropdown">
+                        <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Library</a>
+                        <ul className="dropdown-menu">
+                            <li><Link to={'/daterangepicker'} className="dropdown-item">Date Picker</Link></li>
+                        </ul>
+                    </li>
                 </ul>
                 <div className="d-lg-flex col-lg-3 justify-content-lg-end pe-4">
                     <small className="position-relative"><i className="fa-solid fa-bell fa-2xl"></i>

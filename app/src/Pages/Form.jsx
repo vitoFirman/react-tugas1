@@ -5,7 +5,7 @@ import Stateutility from "../Helpers/StateUtility";
 export class Form extends Component{
     constructor(props) {
         super(props)
-        this.st = new Stateutility({state:this.state, setState:this.setState})
+        this.st = new Stateutility(this)
         this.state = {
             component1: {
                 // get value
@@ -37,15 +37,11 @@ export class Form extends Component{
     handleRadioChange = (e) => {
         const {value, checked} = e.target
         if(value === 'one') {
-            this.setState({
-                isOnRadio1: checked,
-                isOnRadio2: !checked
-            })
+            this.st.setPartialState('component2.isOnRadio1', checked)
+            this.st.setPartialState('component2.isOnRadio2', !checked)
         } else if (value === 'two') {
-            this.setState({
-                isOnRadio1: !checked,
-                isOnRadio2: checked
-            })
+            this.st.setPartialState('component2.isOnRadio1', !checked)
+            this.st.setPartialState('component2.isOnRadio2', checked)
         }
     }
 
@@ -125,12 +121,12 @@ export class Form extends Component{
                             <div className="card-body">
                                 <form>
                                     <div className="form-floating mb-3">
-                                        <input type="text" className="form-control" id="text" placeholder="text" value={this.state.input1} onChange={(e) => this.setState({input1: e.target.value})}/>
+                                        <input type="text" className="form-control" id="text" placeholder="text" value={this.state.component2.input1} onChange={(e) => this.st.setPartialState('component2.input1', e.target.value)}/>
                                         <label htmlFor="text">Text</label>
                                     </div>
 
                                     {/* select */}
-                                    <select className="form-select" aria-label="Default select example" value={this.state.isSelected} onChange={(e) => this.setState({isSelected: e.target.value})}>
+                                    <select className="form-select" aria-label="Default select example" value={this.state.component2.isSelected} onChange={(e) => this.st.setPartialState('component2.isSelected', e.target.value)}>
                                         <option value="one">One</option>
                                         <option value="two">Two</option>
                                         <option value="three">Three</option>
@@ -138,7 +134,7 @@ export class Form extends Component{
 
                                     {/* checkbox */}
                                     <div className="form-check mt-4">
-                                        <input className="form-check-input" type="checkbox" value="" id="one" checked={this.state.isChecked ? true : false} onChange={() => this.setState( this.state.isChecked ? {isChecked: false} : {isChecked: true})}/>
+                                        <input className="form-check-input" type="checkbox" value="" id="one" checked={this.state.component2.isChecked ? true : false} onChange={() => this.state.component2.isChecked ? this.st.setPartialState('component2.isChecked', false) : this.st.setPartialState('component2.isChecked', true  )}/>
                                         <label className="form-check-label" htmlFor="one" >
                                             One
                                         </label>
@@ -152,13 +148,13 @@ export class Form extends Component{
                                     
                                     {/* radio */}
                                     <div className="form-check mt-4">
-                                        <input className="form-check-input" type="radio" name="one" value="one" id="one1" checked={this.state.isOnRadio1 ? true : false} onChange={this.handleRadioChange}/>
+                                        <input className="form-check-input" type="radio" name="one" value="one" id="one1" checked={this.state.component2.isOnRadio1 ? true : false} onChange={this.handleRadioChange}/>
                                         <label className="form-check-label" htmlFor="one1">
                                             One
                                         </label>
                                     </div>
                                     <div className="form-check">
-                                        <input className="form-check-input" type="radio" name="one" id="one2" value="two" checked={this.state.isOnRadio2 ? true : false} onChange={this.handleRadioChange}/>
+                                        <input className="form-check-input" type="radio" name="one" id="one2" value="two" checked={this.state.component2.isOnRadio2 ? true : false} onChange={this.handleRadioChange}/>
                                         <label className="form-check-label" htmlFor="one2">
                                             Two
                                         </label>

@@ -11,6 +11,8 @@ import { HighChart } from "./Pages/HighChart";
 import { GoogleChart } from "./Pages/GoogleChart";
 import { Form } from "./Pages/Form";
 import { Header } from "./Components/Header";
+// import { DatePickerComponent } from "./Pages/DatePicker";
+import { DateRangePickerComponent } from "./Pages/DateRangePicker";
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +43,7 @@ class App extends Component {
             <Route path="/highchart" element={<HighChart/>}></Route>
             <Route path="/googleChart" element={<GoogleChart/>}></Route>
             <Route path="/form" element={<Form/>}></Route>
+            <Route path="/daterangepicker" element={<DateRangePickerComponent/>}></Route>
             <Route path='*' exact={true} element={<NotFound/>} />
         </Routes>
 
