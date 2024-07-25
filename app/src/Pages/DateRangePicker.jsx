@@ -26,6 +26,7 @@ export class DateRangePickerComponent extends Component {
         this.st.setPartialState('selection', date.selection)
     }
 
+
     render() {
         return (
             <div className="container-fluid">
@@ -34,10 +35,12 @@ export class DateRangePickerComponent extends Component {
                     <p className="shadow-sm px-3 py-2 mb-5 bg-body-tertiary rounded border">{`${formatDateName(this.state.selection.startDate)}`}</p>
                     <p className="shadow-sm px-3 py-2 mb-5 bg-body-tertiary rounded border">{`${formatDateName(this.state.selection.endDate)}`}</p>
                 </div>
+                <button onClick={() => alert(this.state.selection.endDate)}>submit</button>
                 {
                     this.state.open &&
                     <div className="d-flex justify-content-center">
                         <DateRangePicker
+                            className="border shadow-sm"
                             ranges={[this.state.selection]}
                             onChange={this.handleDateChange}
                             locale={id}

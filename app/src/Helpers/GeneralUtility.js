@@ -10,6 +10,9 @@ export const formatDate = (date) => {
 }
 
 export const formatDateName = (date) => {
+  if(date === null) {
+    return false
+  }
   const day = String(date.getDate()).padStart(2, '0');
   const dayName = date.toLocaleDateString('id-ID', {weekday: 'long'})
   const monthName = date.toLocaleDateString('id-ID', {month: 'long'})
