@@ -41,7 +41,11 @@ export class Header extends Component{
                         <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Library</a>
                         <ul className="dropdown-menu">
                             <li><Link to={'/daterangepicker'} className="dropdown-item">Date Picker</Link></li>
+                            <li><Link to={'/fontawesome'} className="dropdown-item">Font Awesome</Link></li>
                         </ul>
+                    </li>
+                    <li className="nav-item">
+                    <Link to={'/redux'} className="nav-link">Redux</Link>
                     </li>
                 </ul>
                 <div className="d-lg-flex col-lg-3 justify-content-lg-end pe-4">

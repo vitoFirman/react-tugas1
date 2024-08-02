@@ -14,6 +14,8 @@ import { Header } from "./Components/Header";
 // import { DatePickerComponent } from "./Pages/DatePicker";
 // import { DateRangePickerComponent } from "./Pages/DateRangePicker";
 import { MuiDateRangePicker } from "./Pages/MuiDateRangePicker";
+import { FontAwesome } from "./Pages/FontAwesome";
+import Redux from "./Pages/Redux";
 
 class App extends Component {
   constructor(props) {
@@ -45,6 +47,8 @@ class App extends Component {
             <Route path="/googleChart" element={<GoogleChart/>}></Route>
             <Route path="/form" element={<Form/>}></Route>
             <Route path="/daterangepicker" element={<MuiDateRangePicker/>}></Route>
+            <Route path="/fontawesome" element={<FontAwesome/>}></Route>
+            <Route path="/redux" element={<Redux/>}></Route>
             <Route path='*' exact={true} element={<NotFound/>} />
         </Routes>
 

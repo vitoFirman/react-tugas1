@@ -17,6 +17,11 @@ export class MuiDateRangePicker extends Component {
             value:[new Date(), addDays(new Date(), 7)]
         }
     }
+
+    componentDidMount() {
+        document.title = "Date Range Picker"
+    }
+
     render() {
         const startDate = formatDateName(this.state.value[0])
         const endDate = formatDateName(this.state.value[1])
