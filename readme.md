@@ -1,6 +1,7 @@
 # React App (Tugas1)
 
 ## Requirements
+- nodejs v18+
 
 ## Installation
 ``` npm i ```
